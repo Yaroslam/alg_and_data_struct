@@ -1,7 +1,6 @@
 #include <iostream>
 #include <ctime>
 #include "array/main.cpp"
-#include <iomanip>
 using namespace std;
 
 
@@ -20,29 +19,59 @@ void array_work(){
     int size;
     int index;
     int elem;
+    clock_t start, end;
+    double seconds;
 
+
+    start = clock();
     cin >> size;
     arr.create_and_fill_arr(size);
+    end = clock();
+    seconds = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("The time: %f seconds\n", seconds);
     arr.print_arr();
 
+
+    start = clock();
     cin >> index >> elem;
     arr.paste_to(index, elem);
     arr.print_arr();
 
+
+    start = clock();
     cin >> index;
     arr.delete_from(index);
+    end = clock();
+    seconds = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("The time: %f seconds\n", seconds);
     arr.print_arr();
 
+
+    start = clock();
     arr.shake_sort();
+    end = clock();
+    seconds = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("The time: %f seconds\n", seconds);
     arr.print_arr();
 
+
+    start = clock();
     cin >> elem;
     arr.paste_to_sort(elem);
+    end = clock();
+    seconds = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("The time: %f seconds\n", seconds);
     arr.print_arr();
 
+
+    start = clock();
     cin >> elem;
     arr.delete_from_sort(elem);
+    end = clock();
+    seconds = (double)(end - start) / CLOCKS_PER_SEC;
+    printf("The time: %f seconds\n", seconds);
     arr.print_arr();
+
 }
 
 
