@@ -19,57 +19,60 @@ void array_work(){
     int size;
     int index;
     int elem;
-    clock_t start, end;
+    clock_t t;
     double seconds;
 
 
-    start = clock();
+    printf("Enter array size\n");
     cin >> size;
+    t = clock();
     arr.create_and_fill_arr(size);
-    end = clock();
-    seconds = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("The time: %f seconds\n", seconds);
+    t = clock() - t;
+    printf ("It took me %d clicks (%f seconds).\n", (int)t, ((double)t)/CLOCKS_PER_SEC);
     arr.print_arr();
 
 
-    start = clock();
+    printf("Enter index and num for paste\n");
     cin >> index >> elem;
+    t = clock();
     arr.paste_to(index, elem);
+    t = clock() - t;
+    printf ("It took me %d clicks (%f seconds).\n", (int)t, ((double)t)/CLOCKS_PER_SEC);
     arr.print_arr();
 
 
-    start = clock();
+    printf("Enter index for delete\n");
     cin >> index;
+    t = clock();
     arr.delete_from(index);
-    end = clock();
-    seconds = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("The time: %f seconds\n", seconds);
+    t = clock() - t;
+    printf ("It took me %d clicks (%f seconds).\n", (int)t, ((double)t)/CLOCKS_PER_SEC);
     arr.print_arr();
 
 
-    start = clock();
+    printf("Second pls, we are sorting array\n");
+    t = clock();
     arr.shake_sort();
-    end = clock();
-    seconds = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("The time: %f seconds\n", seconds);
+    t = clock() - t;
+    printf ("It took me %d clicks (%f seconds).\n", (int)t, ((double)t)/CLOCKS_PER_SEC);
     arr.print_arr();
 
 
-    start = clock();
+    printf("Enter num for paste\n");
     cin >> elem;
+    t = clock();
     arr.paste_to_sort(elem);
-    end = clock();
-    seconds = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("The time: %f seconds\n", seconds);
+    t = clock() - t;
+    printf ("It took me %d clicks (%f seconds).\n", (int)t, ((double)t)/CLOCKS_PER_SEC);
     arr.print_arr();
 
 
-    start = clock();
+    printf("Enter num for delete\n");
     cin >> elem;
+    t = clock();
     arr.delete_from_sort(elem);
-    end = clock();
-    seconds = (double)(end - start) / CLOCKS_PER_SEC;
-    printf("The time: %f seconds\n", seconds);
+    t = clock() - t;
+    printf ("It took me %d clicks (%f seconds).\n", (int)t, ((double)t)/CLOCKS_PER_SEC);
     arr.print_arr();
 
 }
