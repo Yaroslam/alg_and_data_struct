@@ -14,7 +14,7 @@ class My_own_arr{
 
     public:
 
-        void print_arr(){
+        void print_array(){
             for(int i = 0; i < len; i++){
                 cout << arr[i] << endl;
             }
