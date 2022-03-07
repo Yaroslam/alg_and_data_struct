@@ -5,7 +5,7 @@ private:
     char* arr;
 
 public:
-    Stack(int lenght){
+    explicit Stack(int lenght){
         len = lenght;
         arr = new char[len];
     }
