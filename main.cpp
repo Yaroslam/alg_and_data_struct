@@ -3,6 +3,7 @@
 #include "array/main.cpp"
 #include "array_sort/sorting.cpp"
 #include "array_sort/array_work.cpp"
+#include "reverse_polish_notation/rpn_work.cpp"
 
 using namespace std;
 
@@ -13,8 +14,9 @@ void array_sorting();
 
 int main(int argc, char* argv[])
 {
-    array_sorting();
-    return 0;
+    char str[9];
+    cin >> str;
+    convert_to_rpn(str);
 }
 
 

@@ -1,25 +1,40 @@
+#include <iostream>
+
+
 class Stack{
-private:
+public:
     int len;
     int top = -1;
     char* arr;
 
-public:
     explicit Stack(int lenght){
         len = lenght;
         arr = new char[len];
     }
 
     void push(char a){
-        arr[++top] = a;
+        top++;
+        arr[top] = a;
     }
 
     char pop(){
-        return arr[top--];
+        top--;
+        return arr[top];
     }
 
     char get_top(){
         return  arr[top];
+    }
+
+    bool empty(){
+        return (top == -1);
+    }
+
+    void print_stack(){
+        for(int i = 0; i < len; i++){
+            std::cout << arr[i];
+        }
+        std::cout << std::endl;
     }
 
 
