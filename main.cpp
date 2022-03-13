@@ -3,7 +3,23 @@
 #include "array/main.cpp"
 #include "array_sort/sorting.cpp"
 #include "array_sort/array_work.cpp"
-#include "reverse_polish_notation/rpn_work.cpp"
+#include "data_struct/list/singly_linked_list.cpp"
+
+
+
+//TODO
+// 1) списки двусвязанный, двсторонний
+//  2) свап по значению массив
+//  3) Возможность создавать списки и массивы с одинаковыми входными данными.
+//  4) Должна иметься возможность
+//  5) Реализация сортированного списка методом вставки.
+//
+//
+//
+//
+
+
+
 
 using namespace std;
 
@@ -11,13 +27,34 @@ using namespace std;
 
 void array_work();
 void array_sorting();
+void list_work();
 
 int main(int argc, char* argv[])
 {
-    char str[9];
-    cin >> str;
-    convert_to_rpn(str);
+    list_work();
 }
+
+
+void list_work(){
+    List myList;
+    myList.add_note(5) ;
+    myList.add_note(11) ;
+    myList.add_note(27);
+    myList.add_note(35);
+    myList.add_note(50)  ;
+    myList.print_list();
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 void array_work(){

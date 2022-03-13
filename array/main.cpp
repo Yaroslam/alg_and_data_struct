@@ -39,6 +39,31 @@ class My_own_arr{
             return false;
         }
 
+        void swap_by_val(int a, int b){
+            int num1, num1_ind;
+            int num2, num2_ind;
+
+            int i = 0;
+
+            while(arr[i] != a && arr[i]!=b){
+                i++;
+            }
+
+            num1 = arr[i];
+            num1_ind = i;
+            i++;
+
+            while(arr[i] != a && arr[i]!=b){
+                i++;
+            }
+
+            num2 = arr[i];
+            num2_ind = i;
+
+            arr[num1_ind] = num2;
+            arr[num2_ind] = num1;
+
+        }
 
         void paste_to(int index, int element)
         {
