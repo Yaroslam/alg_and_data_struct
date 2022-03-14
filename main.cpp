@@ -9,15 +9,6 @@
 
 
 
-//TODO
-//  3) Возможность создавать списки и массивы с одинаковыми входными данными.
-//  5) Реализация сортированного списка методом вставки.
-//
-//
-//
-//
-
-
 
 
 using namespace std;
@@ -35,22 +26,19 @@ int main(int argc, char* argv[])
 }
 
 
-void create_and_fill(int* arr, int size){
-    srand(time(0));
-    arr = new int[size];
-    for (int count = 0; count < size; count++)
-        arr[count] = (rand() + 1) / float((rand() % 10 + 1));
-}
 
 void list_work(){
     List myList;
-    int* arr;
+    My_own_arr arr(10);
     srand(time(0));
-    arr = new int[10];
-    for (int count = 0; count < 10; count++)
-        arr[count] = (rand() + 1) / float((rand() % 10 + 1));
-    myList.create_sort_list(10, arr);
+    for (int count = 0; count < 12; count++) {
+        int a = (rand() + 1) / float((rand() % 10 + 1));
+        myList.add_note(a);
+        arr.append(a);
+    }
     myList.print_list();
+    cout << endl;
+    arr.print_array();
 }
 
 
@@ -66,7 +54,6 @@ void list_work(){
 
 
 void array_work(){
-    My_own_arr arr;
     int size;
     int index;
     int elem;
@@ -76,6 +63,7 @@ void array_work(){
 
     printf("Enter array size\n");
     cin >> size;
+    My_own_arr arr(size);
     t = clock();
     arr.create_and_fill_arr(size);
     t = clock() - t;

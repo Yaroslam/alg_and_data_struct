@@ -6,6 +6,7 @@ class My_own_arr{
     private:
         int len;
         int* arr;
+        int cur_ind;
         bool sorted = false;
 
         void set_len(int new_len){
@@ -13,6 +14,23 @@ class My_own_arr{
         }
 
     public:
+
+        My_own_arr(int lenght){
+            set_len(lenght);
+            arr = new int[len];
+            cur_ind = 0;
+        }
+
+        void append(int a){
+            if(cur_ind <= len){
+                arr[cur_ind] = a;
+                cur_ind++;
+            }
+            else{
+                cout << "Your array size is " << len << " what you gonna do with number " << a << endl;
+                throw EOF;
+            }
+        }
 
         void print_array(){
             for(int i = 0; i < len; i++){
