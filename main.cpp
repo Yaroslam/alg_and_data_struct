@@ -5,14 +5,12 @@
 #include "array_sort/array_work.cpp"
 #include "data_struct/list/singly_linked_list.cpp"
 #include "data_struct/list/twoside_linked_list.cpp"
+#include "data_struct/list/double_linked_list.cpp"
 
 
 
 //TODO
-// 1) списки двсторонний
-//  2) свап по значению массив
 //  3) Возможность создавать списки и массивы с одинаковыми входными данными.
-//  4) Должна иметься возможность
 //  5) Реализация сортированного списка методом вставки.
 //
 //
@@ -29,6 +27,7 @@ using namespace std;
 void array_work();
 void array_sorting();
 void list_work();
+void create_and_fill(int size);
 
 int main(int argc, char* argv[])
 {
@@ -36,14 +35,21 @@ int main(int argc, char* argv[])
 }
 
 
+void create_and_fill(int* arr, int size){
+    srand(time(0));
+    arr = new int[size];
+    for (int count = 0; count < size; count++)
+        arr[count] = (rand() + 1) / float((rand() % 10 + 1));
+}
+
 void list_work(){
-    List_twoside myList;
-    myList.add_note(5) ;
-    myList.add_note(11);
-    myList.add_note(27);
-    myList.add_note(35);
-    myList.add_note(50);
-    myList.swap_by_val(5, 50);
+    List myList;
+    int* arr;
+    srand(time(0));
+    arr = new int[10];
+    for (int count = 0; count < 10; count++)
+        arr[count] = (rand() + 1) / float((rand() % 10 + 1));
+    myList.create_sort_list(10, arr);
     myList.print_list();
 }
 

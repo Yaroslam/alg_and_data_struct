@@ -9,10 +9,42 @@ struct Node{
 class List{
 private:
     Node* head;
+
+    void insert(int a){
+        Node* nd = new Node;
+        nd->data = a;
+        nd->next = NULL;
+
+        Node* prev = head;
+        Node* current = head;
+
+        while(current != NULL && a < current->data){
+            prev = current;
+            current = current->next;
+        }
+
+        if(prev == head){
+            head = nd;
+        }
+        else{
+            prev->next = nd;
+        }
+        nd->next = current;
+    }
+
+
 public:
     List(){
         head = NULL;
     }
+
+    void create_sort_list(int size, int* arr){
+       for(int i = 0; i<size; i++){
+           insert(arr[i]);
+       }
+    }
+
+
 
     void add_note(int d){
         Node* nd = new Node;
