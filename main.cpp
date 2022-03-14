@@ -4,11 +4,12 @@
 #include "array_sort/sorting.cpp"
 #include "array_sort/array_work.cpp"
 #include "data_struct/list/singly_linked_list.cpp"
+#include "data_struct/list/twoside_linked_list.cpp"
 
 
 
 //TODO
-// 1) списки двусвязанный, двсторонний
+// 1) списки двсторонний
 //  2) свап по значению массив
 //  3) Возможность создавать списки и массивы с одинаковыми входными данными.
 //  4) Должна иметься возможность
@@ -36,12 +37,13 @@ int main(int argc, char* argv[])
 
 
 void list_work(){
-    List myList;
+    List_twoside myList;
     myList.add_note(5) ;
-    myList.add_note(11) ;
+    myList.add_note(11);
     myList.add_note(27);
     myList.add_note(35);
-    myList.add_note(50)  ;
+    myList.add_note(50);
+    myList.swap_by_val(5, 50);
     myList.print_list();
 }
 
