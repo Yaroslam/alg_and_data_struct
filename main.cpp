@@ -7,12 +7,7 @@
 #include "data_struct/list/twoside_linked_list.cpp"
 #include "data_struct/list/double_linked_list.cpp"
 
-
-
-
-
 using namespace std;
-
 
 
 void array_work();
@@ -20,11 +15,11 @@ void array_sorting();
 void list_work();
 void create_and_fill(int size);
 
+
 int main(int argc, char* argv[])
 {
     list_work();
 }
-
 
 
 void list_work(){
@@ -40,17 +35,6 @@ void list_work(){
     cout << endl;
     arr.print_array();
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 void array_work(){
