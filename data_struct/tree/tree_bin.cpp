@@ -10,13 +10,16 @@ struct Node_bin{
 
 class Tree_bin{
     private:
-        Node_bin* root;
+        Node_bin* root = NULL;
 
 
-        Node_bin* find_successor(Node_bin* node){
+        static Node_bin* find_successor(Node_bin* node){
             Node_bin* successor = node->right;
             while(true){
-                if(successor->left == NULL){
+                if(successor == NULL){
+                    break;
+                }
+                else if(successor->left == NULL){
                     break;
                 }
                 else{
@@ -45,29 +48,35 @@ class Tree_bin{
             if(node->right == NULL){
                 if(node == root){
                     root = node->left;
+                    root->parent = NULL;
                 }
                 else if(node->parent->left == node){
                     node->parent->left = node->left;
+                    node->left->parent = node->parent;
                 }
                 else{
                     node->parent->right = node->left;
+                    node->left->parent = node->parent;
                 }
             }
             else{
                 if(node == root){
                     root = node->right;
+                    root->parent = NULL;
                 }
                 else if(node->parent->left == node){
                     node->parent->left = node->right;
+                    node->right->parent = node->parent;
                 }
                 else{
                     node->parent->right = node->right;
+                    node->right->parent = node->parent;
                 }
             }
         }
 
 
-        void  delete_with_two_childs(Node_bin* node){
+        static void  delete_with_two_childs(Node_bin* node){
             Node_bin* successor = find_successor(node);
 
             if(successor == node->right){
@@ -86,22 +95,32 @@ class Tree_bin{
                 }
             }
             else{
-                successor->parent->left = successor->right;
+                Node_bin* suc_right = successor->right;
+                successor->left = node->left;
                 successor->right = node->right;
-                node->parent->right = find_successor(successor);
+                successor-> parent = node->parent;
+                successor->right->left = suc_right;
+
+                successor->right->parent = successor;
+                successor->left->parent = successor;
+                successor->right->left->parent = successor->right;
 
 
-
-
+                if(node->parent->left == node){
+                    node->parent->left = successor;
+                    node->parent = NULL;
+                }
+                else{
+                    node->parent->right = successor;
+                    node->parent = NULL;
+                }
             }
-
-
         }
 
 
     public:
         void insert(int val){
-            Node_bin *new_nd = nullptr;
+            Node_bin *new_nd = new Node_bin;
             new_nd->data = val;
             new_nd->parent = NULL;
             new_nd->left = NULL;
@@ -112,7 +131,7 @@ class Tree_bin{
             }
             else{
                 Node_bin* cur = root;
-                Node_bin* parent = nullptr;
+                Node_bin* parent = root;
 
                 while (true){
                     parent = cur;
@@ -120,6 +139,7 @@ class Tree_bin{
                         cur = cur->left;
                         if(cur == NULL){
                             parent->left = new_nd;
+                            new_nd->parent = parent;
                             return;
                         }
                     }
@@ -127,6 +147,7 @@ class Tree_bin{
                         cur = cur->right;
                         if(cur == NULL){
                             parent->right = new_nd;
+                            new_nd->parent = parent;
                             return;
                         }
                     }
@@ -153,7 +174,7 @@ class Tree_bin{
             return cur;
         }
 
-        int count_child(Node_bin* node){
+        static int count_child(Node_bin* node){
             int child = 0;
             if(node->left != NULL){
                 child++;
@@ -173,11 +194,13 @@ class Tree_bin{
             switch (childs) {
                 case 0:
                     delete_with_no_child(node_to_del);
+                    break;
                 case 1:
                     delete_with_one_child(node_to_del);
+                    break;
                 case 2:
                     delete_with_two_childs(node_to_del);
+                    break;
             }
         }
-
 };

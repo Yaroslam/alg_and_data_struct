@@ -6,6 +6,7 @@
 #include "data_struct/list/singly_linked_list.cpp"
 #include "data_struct/list/twoside_linked_list.cpp"
 #include "data_struct/list/double_linked_list.cpp"
+#include "data_struct/tree/tree_bin.cpp"
 
 using namespace std;
 
@@ -13,12 +14,28 @@ using namespace std;
 void array_work();
 void array_sorting();
 void list_work();
+void tree_work();
 void create_and_fill(int size);
 
 
 int main(int argc, char* argv[])
 {
-    list_work();
+    tree_work();
+}
+
+
+void tree_work(){
+    Tree_bin tree;
+
+    tree.insert(80);
+    tree.insert(52);
+    tree.insert(48);
+    tree.insert(71);
+    tree.insert(63);
+    tree.insert(67);
+    tree.del(71);
+
+
 }
 
 
