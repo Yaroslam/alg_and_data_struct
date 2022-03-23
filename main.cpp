@@ -7,6 +7,7 @@
 #include "data_struct/list/twoside_linked_list.cpp"
 #include "data_struct/list/double_linked_list.cpp"
 #include "data_struct/tree/tree_bin.cpp"
+#include "data_struct/tree/black_red_tree.cpp"
 
 using namespace std;
 
@@ -15,13 +16,39 @@ void array_work();
 void array_sorting();
 void list_work();
 void tree_work();
+void BRtree_work();
 void create_and_fill(int size);
 
 
 int main(int argc, char* argv[])
 {
-    tree_work();
+    BRtree_work();
 }
+
+
+
+
+void BRtree_work(){
+    RBtree tree;
+
+    tree.insert(50);
+    tree.insert(25);
+    tree.insert(75);
+    tree.insert(12);
+    tree.insert(37);
+    tree.insert(62);
+    tree.insert(87);
+    tree.insert(6);
+    tree.insert(18);
+    tree.insert(31);
+    tree.insert(43);
+    tree.insert(62);
+    tree.insert(87);
+
+
+
+}
+
 
 
 void tree_work(){
