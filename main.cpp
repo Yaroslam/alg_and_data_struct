@@ -8,6 +8,7 @@
 #include "data_struct/list/double_linked_list.cpp"
 #include "data_struct/tree/tree_bin.cpp"
 #include "data_struct/tree/black_red_tree.cpp"
+#include "data_struct/heap/heap.cpp"
 
 using namespace std;
 
@@ -15,14 +16,19 @@ using namespace std;
 void array_work();
 void array_sorting();
 void list_work();
+void heap_work();
 void tree_work();
 void BRtree_work();
 void create_and_fill(int size);
 
 
+
+
+
+
 int main(int argc, char* argv[])
 {
-    BRtree_work();
+    heap_work();
 }
 
 
@@ -67,17 +73,18 @@ void tree_work(){
 
 
 void list_work(){
-    List myList;
-    My_own_arr arr(10);
+    List_double list1;
+    List_twoside List2;
+    int a;
     srand(time(0));
-    for (int count = 0; count < 12; count++) {
-        int a = (rand() + 1) / float((rand() % 10 + 1));
-        myList.add_note(a);
-        arr.append(a);
+    for (int count = 0; count < 5; count++) {
+        cin >> a;
+        list1.add_note(a);
+        List2.add_note(a);
     }
-    myList.print_list();
-    cout << endl;
-    arr.print_array();
+    list1.print_list();
+    list1.delet(3);
+    list1.print_list();
 }
 
 
@@ -207,7 +214,25 @@ void array_sorting(){
         }
     }
 
-
 }
 
+void heap_work(){
+    int i;
+    cin >> i;
+    int* arr = new int[i];
+    Heap Heap(i);
 
+    srand(time(0));
+    for (int count = 0; count < i; count++) {
+        arr[count] = (rand() + 1) / float((rand() % 10 + 1));
+        Heap.adelem((rand() + 1) / float((rand() % 10 + 1)));
+    }
+
+    Heap.out();
+
+    Heap.getmax();
+    Heap.out();
+
+
+
+};

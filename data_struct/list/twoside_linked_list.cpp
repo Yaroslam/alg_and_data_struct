@@ -149,6 +149,7 @@ public:
 
 
     int find_by_val(int a){
+        cout << "all";
         Node_two* current = head;
         while(current->data != a && current->next != NULL){
             current = current->next;

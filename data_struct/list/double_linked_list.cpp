@@ -127,6 +127,7 @@ public:
 
 
     void swap_by_val(int a, int b){
+        cout << 1;
         Node_two_linded* node_a;
         Node_two_linded* node_b;
         int temp;
@@ -175,6 +176,7 @@ public:
     }
 
     int find_by_ind(int ind){
+        cout << "all double" << endl;
         Node_two_linded* current = head;
         int cur_ind = 0;
         while((cur_ind != ind) && (current->next != NULL)){
